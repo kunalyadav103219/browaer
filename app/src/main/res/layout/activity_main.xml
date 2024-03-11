@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ The contents of this file are subject to the Common Public Attribution License Version 1.0.
+ (the "License"); you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at:
+ https://github.com/Slion/Fulguris/blob/main/LICENSE.CPAL-1.0.
+ The License is based on the Mozilla Public License Version 1.1, but Sections 14 and 15 have been
+ added to cover use of software over a computer network and provide for limited attribution for
+ the Original Developer. In addition, Exhibit A has been modified to be consistent with Exhibit B.
+
+ Software distributed under the License is distributed on an "AS IS" basis, WITHOUT WARRANTY OF
+ ANY KIND, either express or implied. See the License for the specific language governing rights
+ and limitations under the License.
+
+ The Original Code is Fulguris.
+
+ The Original Developer is the Initial Developer.
+ The Initial Developer of the Original Code is Stéphane Lenclud.
+
+ All portions of the code written by Stéphane Lenclud are Copyright © 2020 Stéphane Lenclud.
+ All Rights Reserved.
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Don't put a background here as it breaks our status bar color -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="fulguris.activity.WebBrowserActivity"
+        android:animateLayoutChanges="true"
+        android:fitsSystemWindows="true">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <LinearLayout
+                android:id="@+id/ui_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="?android:attr/colorBackground"
+                android:animateLayoutChanges="true">
+                <include android:id="@+id/toolbar_include"
+                    android:visibility="visible"
+                    layout="@layout/toolbar"/>
+
+                <RelativeLayout
+                    android:id="@+id/newui"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <FrameLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <View
+                        android:visibility="gone"
+                        android:id="@+id/view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/divider_dark" />
+
+                    <fulguris.view.ImageView
+                        android:visibility="gone"
+                        android:id="@+id/toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/toggle" />
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/just_browser"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_below="@+id/view1"
+                        android:layout_marginTop="5dp"
+                        android:layout_toRightOf="@+id/toggle"
+                        android:gravity="center"
+                        android:text="Just Browser"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/pro"
+                        android:layout_width="70dp"
+                        android:layout_height="30dp"
+                        android:layout_alignEnd="@+id/just_browser"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/pro_background"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:padding="5dp"
+                            android:src="@drawable/crown" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_alignEnd="@+id/just_browser"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center"
+                            android:text="PRO"
+                            android:textColor="@color/bookmark_default_orange"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                    <View
+                         android:visibility="gone"
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/pro"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/divider_dark"/>
+
+
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/serchbox_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_below="@id/just_browser"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/google_search_round_shape">
+
+                        <ImageView
+                            android:id="@+id/googleimage"
+                            android:layout_width="56dp"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:src="@drawable/google" />
+                        <fulguris.view.SearchView
+                            android:layout_toRightOf="@+id/googleimage"
+                            android:id="@+id/search"
+                            android:layout_width="match_parent"
+                            android:layout_height="53dp"
+                            android:background="@null"
+                            android:completionThreshold="1"
+                            android:dropDownAnchor="@id/toolbar_include"
+                            android:dropDownWidth="match_parent"
+                            android:gravity="start|center_vertical"
+                            android:hint="@string/search_hint"
+                            android:imeOptions="actionGo"
+                            android:importantForAutofill="no"
+                            android:inputType="textUri"
+                            android:selectAllOnFocus="true"
+                            android:textColor="?attr/autoCompleteTitleColor"
+                            android:textColorHint="?attr/autoCompleteUrlColor"
+                            android:textCursorDrawable="@null"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_goneMarginLeft="8dp"
+                            android:layout_marginEnd="10dp"
+                            android:ellipsize="middle"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:focusableInTouchMode="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            />
+
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:id="@+id/qrcode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/search"
+                            android:padding="5dp"
+                            android:src="@drawable/layer" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_alignParentEnd="true"
+                            android:id="@+id/audio_assist"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/qrcode"
+                            android:padding="15dp"
+                            android:src="@drawable/microphone" />
+
+
+
+
+                    </RelativeLayout>
+
+                    <fulguris.view.ImageView
+                        android:layout_below="@+id/serchbox_container"
+                        android:id="@+id/search_ssl_statuss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:background="@color/transparent"
+                        android:padding="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:focusable="false"
+                        />
+                    <androidx.cardview.widget.CardView
+                       android:layout_margin="5dp"
+                        android:id="@+id/card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/serchbox_container"
+                        app:cardCornerRadius="10dp"
+                        android:elevation="3dp"
+                       app:cardBackgroundColor="@color/white"
+                        >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+
+                    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                        android:id="@+id/carousel"
+                        android:background="@drawable/background_corner_radius"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+
+                        app:showTopShadow="true"
+                        app:topShadowAlpha="0.6"
+                        app:topShadowHeight="32dp"
+
+                        android:shadowRadius="15.0"
+                        app:showBottomShadow="true"
+                        app:bottomShadowAlpha="0.6"
+                        app:bottomShadowHeight="64dp"
+                        app:showCaption="false"
+                        app:captionMargin="0dp"
+                        app:captionTextSize="14sp"
+                        app:showIndicator="true"
+                        app:indicatorMargin="0dp"
+                        app:imageScaleType="centerCrop"
+                        app:carouselBackground="#00000000"
+
+
+                        app:carouselPadding="0dp"
+                        app:carouselPaddingBottom="0dp"
+                        app:carouselPaddingEnd="0dp"
+                        app:carouselPaddingStart="0dp"
+                        app:carouselPaddingTop="0dp"
+
+                        app:showNavigationButtons="true"
+                        app:previousButtonLayout="@layout/previous_button_layout"
+                        app:previousButtonId="@id/btn_previous"
+                        app:previousButtonMargin="4dp"
+                        app:nextButtonLayout="@layout/next_button_layout"
+                        app:nextButtonId="@id/btn_next"
+                        app:nextButtonMargin="4dp"
+                        app:carouselType="SHOWCASE"
+                        app:carouselGravity="CENTER"
+                        app:scaleOnScroll="true"
+                        app:scalingFactor="0.15"
+                        app:autoWidthFixing="true"
+                        app:autoPlay="true"
+                        app:autoPlayDelay="3000"
+                        app:infiniteCarousel="true"
+                        app:touchToPause="true" />
+
+                    </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/card"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="10dp"
+                        app:contentPadding="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/app_container"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/carousel"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:gravity="center">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/facebook"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_alignParentStart="true"
+                                    android:src="@drawable/fb"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/facebook"
+                                    android:layout_marginTop="5dp"
+                                    android:text="Facebook"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/amazon"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/facebook"
+                                    android:src="@drawable/amazon_c"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/facebook"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_toRightOf="@+id/facebook"
+                                    android:gravity="center"
+                                    android:text="Amazon"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/instagram"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/amazon"
+                                    android:src="@drawable/instagram_new"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/facebook"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_toRightOf="@+id/amazon"
+                                    android:text="Instagram"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/flipkart"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/instagram"
+                                    android:src="@drawable/facebook_cc"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/facebook"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_toRightOf="@+id/instagram"
+                                    android:gravity="center"
+                                    android:text="Flipkart"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/shopsy"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/flipkart"
+                                    android:src="@drawable/shopcyc"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+                                <TextView
+                                    android:layout_width="60dp"
+
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/flipkart"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_toRightOf="@+id/flipkart"
+                                    android:gravity="center"
+                                    android:text="shopsy"
+                                    android:textColor="@color/gray_dark" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/app_container2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/app_container"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/cricbuzz"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_alignParentStart="true"
+                                    android:src="@drawable/crickbuzz"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/cricbuzz"
+                                    android:layout_marginTop="2dp"
+                                    android:gravity="center"
+                                    android:text="Cricbuzz"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/twitter"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/cricbuzz"
+                                    android:src="@drawable/twitter"
+                                    app:civ_border_color="@color/white"
+
+                                    app:civ_border_width="2dp" />
+
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/twitter"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_toRightOf="@+id/cricbuzz"
+                                    android:gravity="center"
+                                    android:text="Twitter"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/jio_cinema"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/twitter"
+                                    android:src="@drawable/jio_cinema_c"
+                                    android:tint="@color/white"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+                                <TextView
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/jio_cinema"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_toRightOf="@+id/twitter"
+                                    android:gravity="center"
+                                    android:text="jio cinema"
+                                    android:textColor="@color/gray_dark" />
+
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/gmail"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/jio_cinema"
+                                    android:src="@drawable/gmail_c"
+                                    android:tint="@color/white"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp" />
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/gmail"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_toRightOf="@+id/jio_cinema"
+                                    android:gravity="center"
+                                    android:text="Gmail"
+                                    android:textColor="@color/gray_dark" />
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/pintrest"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_toRightOf="@+id/gmail"
+                                    android:src="@drawable/pinterest_cc"
+                                    android:tint="@color/white"
+                                    app:civ_border_color="@color/white"
+                                    app:civ_border_width="2dp"
+                                    app:civ_circle_background_color="@color/accent_color" />
+
+                                <TextView
+
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/pintrest"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="3dp"
+                                    android:layout_toRightOf="@+id/gmail"
+                                    android:gravity="center"
+                                    android:text="Pinterest"
+                                    android:textColor="@color/gray_dark" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        app:cardCornerRadius="10dp"
+                        android:elevation="10dp"
+                        android:layout_margin="5dp"
+                        >
+
+
+
+
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <fulguris.icon.TabCountView
+                        android:visibility="gone"
+                        android:id="@+id/tabs_button"
+                        style="?android:attr/actionButtonStyle"
+                        android:layout_width="@dimen/material_grid_touch_medium"
+                        android:layout_height="@dimen/material_grid_touch_medium"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="17dp"
+                        android:contentDescription="@string/tabs"
+                        android:nextFocusDown="@id/web_view"
+                        app:tabIconBorderRadius="6dp"
+                        app:tabIconBorderWidth="2dp"
+                        app:tabIconColor="?attr/colorControlNormal"
+                        app:tabIconTextSize="10dp"
+                        app:tooltipText="@{@string/tabs}" />
+
+
+                    <com.google.android.material.bottomnavigation.BottomNavigationView
+                        android:visibility="gone"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/background_navbar"
+                        android:id="@+id/bottom_navigation"
+                        android:layout_width="match_parent"
+                        android:layout_height="67dp"
+                        app:itemTextColor="@color/sss"
+                        android:layout_gravity="bottom"
+                        app:labelVisibilityMode="labeled"
+                        app:itemIconSize="20dp"
+                        app:itemTextAppearanceActive="@style/BottomNavigationView.TextAppearance.Small"
+                        app:itemTextAppearanceInactive="@style/BottomNavigationView.TextAppearance.Small"
+                        app:itemIconTint="@color/sss"
+                        app:menu="@menu/navbar" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+
+                     android:visibility="gone"
+                    android:id="@+id/layoutHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:background="?android:attr/colorBackground"
+                    android:animateLayoutChanges="true">
+
+                    <LinearLayout
+                        android:id="@+id/layoutTabsLeft"
+                        android:layout_width="@dimen/vertical_tab_width"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:orientation="vertical"
+                        android:background="?android:attr/colorBackground"
+                        tools:background="?attr/colorError"
+                        android:animateLayoutChanges="true"
+                        tools:visibility="visible">
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutPageContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:background="?android:attr/colorBackground"
+                        android:animateLayoutChanges="true">
+                        <include android:id="@+id/findInPageInclude"
+                            layout="@layout/search_interface"/>
+
+                        <!--2
+                        FrameLayout needed to animate our tabs.
+                        We keep swapping both PullRefreshLayout to perform smooth flicker free tab animations.
+                        We switched from a FrameLayout to a CoordinatorLayout to be able to display snackbar within our WebView.
+                        -->
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:id="@+id/web_view_frame"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:animateLayoutChanges="false">
+
+                            <fulguris.view.PullRefreshLayout
+                                android:id="@+id/tabViewContainerOne"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="?android:attr/colorBackground"
+                                android:clipChildren="true"
+                                android:animateLayoutChanges="false" />
+
+                            <fulguris.view.PullRefreshLayout
+                                android:id="@+id/tabViewContainerTwo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="?android:attr/colorBackground"
+                                android:clipChildren="true"
+                                android:animateLayoutChanges="false" />
+
+                            <include layout="@layout/touch_tab_switcher"
+                                android:id="@+id/fabInclude" />
+
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutTabsRight"
+                        android:layout_width="@dimen/vertical_tab_width"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:orientation="vertical"
+                        android:background="?android:attr/colorBackground"
+                        tools:background="?attr/colorError"
+                        android:animateLayoutChanges="true">
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/background_navbar1"
+                    android:id="@+id/bottom_navigation1"
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    app:itemTextColor="@color/divider_light"
+                    android:layout_gravity="bottom"
+                    app:itemIconSize="20dp"
+                    app:labelVisibilityMode="unlabeled"
+                    app:itemBackground="@null"
+                    app:tabBackground="@color/white"
+                    app:tabIndicatorColor="@android:color/transparent"
+                    app:itemTextAppearanceActive="@style/BottomNavigationView.TextAppearance.Small"
+                    app:itemTextAppearanceInactive="@style/BottomNavigationView.TextAppearance.Small"
+                    app:itemIconTint="@color/black"
+                    app:menu="@menu/navbar1"/>
+            </LinearLayout>
+
+            <!--
+            - android:clickable="true":
+            Needed to fix click through issues.
+            See: https://github.com/Slion/Fulguris/issues/290
+            -->
+
+            <FrameLayout
+                android:id="@+id/left_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="?android:attr/colorBackground"
+                android:fitsSystemWindows="true"
+                android:weightSum="1"
+                android:layout_marginLeft="-64dp"
+                android:clickable="true" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <!--  We added the content for cutout support to be able to set margins conveniently -->
+                <FrameLayout
+                    android:id="@+id/leftDrawerContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/colorBackground" >
+
+
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <!--
+            - android:clickable="true":
+            Needed to fix click through issues.
+            See: https://github.com/Slion/Fulguris/issues/290
+            -->
+            <FrameLayout
+                android:id="@+id/right_drawer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:background="?android:attr/colorBackground"
+                android:fitsSystemWindows="true"
+                android:weightSum="1"
+                android:layout_marginLeft="-64dp"
+                android:clickable="true">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   />
+                <!--  We added the content for cutout support to be able to set margins conveniently -->
+                <FrameLayout
+                    android:id="@+id/rightDrawerContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/colorBackground" />
+
+            </FrameLayout>
+
+
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</layout>

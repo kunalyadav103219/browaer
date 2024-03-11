@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/homen"
+            android:title="Home" />
+        <item
+            android:visible="false"
+            android:icon="@drawable/globe"
+            android:id="@+id/nav_explore"
+            android:title="Explore" />
+        <item
+            android:id="@+id/nav_tabs"
+            android:icon="@drawable/readn"
+            android:iconTint="@color/accent_color"
+            android:title="Tabs" />
+        <item
+            android:visible="false"
+            android:icon="@drawable/rectandlen"
+            android:id="@+id/nav_file"
+            android:title="Files" />
+        <item
+            android:icon="@drawable/settingn"
+            android:id="@+id/nav_setting"
+            android:title="Settings" />
+
+
+</menu>
