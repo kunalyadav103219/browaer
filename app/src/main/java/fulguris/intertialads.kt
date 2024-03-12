@@ -14,21 +14,25 @@ import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback
 object intertialads {
 
     private var interstitialAd: AdManagerInterstitialAd? = null
-
-    fun loadInterstitial(context: Context) {
+    private var isAdloaded=false
+    fun loadInterstitial(context: Context):Boolean {
         Log.d("InterstitialAdsManager", "Loading interstitial ad...")
         val adRequest = AdManagerAdRequest.Builder().build()
         AdManagerInterstitialAd.load(context, "ca-app-pub-3940256099942544/1033173712", adRequest, object : AdManagerInterstitialAdLoadCallback() {
             override fun onAdFailedToLoad(adError: LoadAdError) {
                 Log.e("InterstitialAdsManager", "Interstitial ad failed to load: ${adError.message}")
+                isAdloaded=true
             }
 
             override fun onAdLoaded(ad: AdManagerInterstitialAd) {
                 Log.d("InterstitialAdsManager", "Interstitial ad loaded successfully")
                 interstitialAd = ad
+
             }
 
+
         })
+        return false
     }
 
     fun showInterstital(activity: Activity) {

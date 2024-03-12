@@ -302,7 +302,11 @@
                         app:cardBackgroundColor="#FFFFFF"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp"
-                        app:contentPadding="5dp">
+                        app:contentPadding="15dp">
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -310,272 +314,767 @@
 
                             android:orientation="vertical">
 
-                            <RelativeLayout
+                            <LinearLayout
                                 android:id="@+id/app_container"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/carousel"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginEnd="5dp"
-                                android:gravity="center">
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/facebook"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_alignParentStart="true"
-                                    android:src="@drawable/fb"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/facebook"
-                                    android:layout_marginTop="5dp"
-                                    android:text="Facebook"
-                                    android:textColor="@color/gray_dark" />
-
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/amazon"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/facebook"
-                                    android:src="@drawable/amazon_c"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-
-                                <TextView
-                                    android:layout_width="60dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/facebook"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_toRightOf="@+id/facebook"
-                                    android:gravity="center"
-                                    android:text="Amazon"
-                                    android:textColor="@color/gray_dark" />
-
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/instagram"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/amazon"
-                                    android:src="@drawable/instagram_new"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/facebook"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_toRightOf="@+id/amazon"
-                                    android:text="Instagram"
-                                    android:textColor="@color/gray_dark" />
-
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/flipkart"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/instagram"
-                                    android:src="@drawable/facebook_cc"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-                                <TextView
-                                    android:layout_width="60dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/facebook"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_toRightOf="@+id/instagram"
-                                    android:gravity="center"
-                                    android:text="Flipkart"
-                                    android:textColor="@color/gray_dark" />
-
-
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/shopsy"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/flipkart"
-                                    android:src="@drawable/shopcyc"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-                                <TextView
-                                    android:layout_width="60dp"
-
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/flipkart"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_toRightOf="@+id/flipkart"
-                                    android:gravity="center"
-                                    android:text="shopsy"
-                                    android:textColor="@color/gray_dark" />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:id="@+id/app_container2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/app_container"
-                                android:layout_alignParentStart="true"
-                                android:layout_alignParentEnd="true"
-                                android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginEnd="10dp"
                                 android:layout_marginBottom="5dp"
-                                android:gravity="center">
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/cricbuzz"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_alignParentStart="true"
-                                    android:src="@drawable/crickbuzz"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
-
-                                <TextView
-                                    android:layout_width="60dp"
+                                <!-- First item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/cricbuzz"
-                                    android:layout_marginTop="2dp"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="Cricbuzz"
-                                    android:textColor="@color/gray_dark" />
+                                    android:orientation="vertical">
 
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/facebook"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/fb"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
 
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/twitter"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/cricbuzz"
-                                    android:src="@drawable/twitter"
-                                    app:civ_border_color="@color/white"
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Facebook"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
 
-                                    app:civ_border_width="2dp" />
-
-
-                                <TextView
-                                    android:layout_width="60dp"
+                                <!-- Second item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/twitter"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_toRightOf="@+id/cricbuzz"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="Twitter"
-                                    android:textColor="@color/gray_dark" />
+                                    android:orientation="vertical">
 
 
                                 <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/jio_cinema"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/twitter"
-                                    android:src="@drawable/jio_cinema_c"
-                                    android:tint="@color/white"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
+                                        android:id="@+id/amazon"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
 
-                                <TextView
-                                    android:layout_width="70dp"
+                                        android:src="@drawable/amazon_c"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Amazon"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Third item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/jio_cinema"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="2dp"
-                                    android:layout_toRightOf="@+id/twitter"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="jio cinema"
-                                    android:textColor="@color/gray_dark" />
+                                    android:orientation="vertical">
+                                    >
 
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/instagram"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/instagram_new"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
 
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/gmail"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/jio_cinema"
-                                    android:src="@drawable/gmail_c"
-                                    android:tint="@color/white"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Instagram"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
 
-                                <TextView
-                                    android:layout_width="60dp"
+                                <!-- Fourth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/gmail"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_toRightOf="@+id/jio_cinema"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="Gmail"
-                                    android:textColor="@color/gray_dark" />
+                                    android:orientation="vertical">
+                                    >
 
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/pintrest"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_toRightOf="@+id/gmail"
-                                    android:src="@drawable/pinterest_cc"
-                                    android:tint="@color/white"
-                                    app:civ_border_color="@color/white"
-                                    app:civ_border_width="2dp"
-                                    app:civ_circle_background_color="@color/accent_color" />
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/flipkart"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/facebook_cc"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
 
-                                <TextView
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Flipkart"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
 
-                                    android:layout_width="60dp"
+                                <!-- Fifth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@+id/pintrest"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_toRightOf="@+id/gmail"
+                                    android:layout_weight="1"
                                     android:gravity="center"
-                                    android:text="Pinterest"
-                                    android:textColor="@color/gray_dark" />
+                                    android:orientation="vertical">
+                                    >
 
-                            </RelativeLayout>
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/shopsy"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/shopcyc"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="Shopsy"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Add more items in a similar manner -->
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/app_container2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/app_container"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <!-- First item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/cricbuzz"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/crickbuzz"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Cricbuzz"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Second item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/twitter"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+
+                                        android:src="@drawable/twitter"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Twitter"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Third item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/jio_cinema"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/jio_cinema_c"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Jio Cinema"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fourth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/gmail"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/gmail_c"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Gmail"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fifth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/pintrest"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/pinterest_cc"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp"
+                                        app:civ_circle_background_color="@color/accent_color" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Pinterest"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Add more items in a similar manner -->
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/app_container3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/app_container"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <!-- First item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/jiomart"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/jiomart"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Jiomart"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Second item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/myntra"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/myntratab"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Myntra"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Third item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/ajio"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/ajio"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Ajio"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fourth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/mamaearth"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/mamaearth"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Mamaearth"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fifth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/ShopClues"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/shopclues"
+                                        android:tint="@color/white"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp"
+                                        app:civ_circle_background_color="@color/accent_color" />
+
+                                    <TextView
+                                        android:layout_width="60dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:ems="1"
+                                        android:textSize="12sp"
+                                        android:text="ShopClues"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Add more items in a similar manner -->
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/app_containerr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/app_container"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <!-- First item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/SnapDeal"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/snapdeal"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="SnapDeal"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Second item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/Croma"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/croma"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Croma"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Third item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/Beardo"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/beardo"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Beardo"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fourth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/swiggy"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/swiggy"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Swiggy"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fifth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/Dominos"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/dominos"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp"
+                                        app:civ_circle_background_color="@color/accent_color" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Dominos"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Add more items in a similar manner -->
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/app_container4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/app_container"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <!-- First item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/McDonald"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/mcd"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="McDonald"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Second item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/BlinkIt"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/blinkit"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="BlinkIt"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Third item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/Zomato"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/zomato"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="2dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="Zomato"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fourth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/TrueMeds"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/truemeds"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="TrueMeds"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Fifth item -->
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/onemg"
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/onemg"
+                                        app:civ_border_color="@color/white"
+                                        app:civ_border_width="2dp"
+                                        app:civ_circle_background_color="@color/accent_color" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:text="onemg"
+                                        android:textColor="@color/gray_dark" />
+                                </LinearLayout>
+
+                                <!-- Add more items in a similar manner -->
+
+                            </LinearLayout>
+
                         </LinearLayout>
+                        </ScrollView>
                     </androidx.cardview.widget.CardView>
 
 
                     <androidx.cardview.widget.CardView
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        app:cardCornerRadius="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
                         android:elevation="10dp"
-                        android:layout_margin="5dp"
-                        >
-
-
-
-
+                        android:visibility="gone"
+                        app:cardCornerRadius="10dp">
 
 
                     </androidx.cardview.widget.CardView>

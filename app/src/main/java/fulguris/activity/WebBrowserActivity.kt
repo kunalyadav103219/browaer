@@ -84,6 +84,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import dagger.hilt.android.AndroidEntryPoint
+import de.hdodenhof.circleimageview.CircleImageView
 import fulguris.*
 import fulguris.BuildConfig
 import fulguris.R
@@ -532,121 +533,117 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
 
 
         firestore = FirebaseFirestore.getInstance()
-        intertialads.showInterstital(this)
-
-
+        //intertialads.showInterstital(this)
+     //Item click listner
         iBinding.facebook.setOnClickListener {
 
-                intertialads.showInterstital(this)
-          //  searchTheWeb("https://www.facebook.com/")
+            searchTheWeb("https://www.facebook.com/")
+
+            }
+        iBinding.jiomart.setOnClickListener{
+            searchTheWeb("https://www.jiomart.com/?gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9w5WVf4DzEihFmiO2ZHg3hsbhTGWkkhFMQir_qBUOWjGcTKWFm375hRoCAWcQAvD_BwE")
+         }
+        iBinding.myntra.setOnClickListener {
+             searchTheWeb("https://www.myntra.com/")
+        }
+        iBinding.ajio.setOnClickListener {
+            searchTheWeb("https://www.ajio.com/?gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9w7G5TLGryWQsqzHy1qyfLdSg-eC4Qc-FQkSKHvhCkaQSRppHS4jbSBoCNskQAvD_BwE")
 
         }
+        iBinding.mamaearth.setOnClickListener {
+            searchTheWeb("https://mamaearth.in/?utm_source=google&utm_medium=cpc&utm_term=83390950687&gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9w0b5JFpHanEqzpJDYqKNjoVCJ7HhivtFcJPR4mejXB9BygFFXEauSRoCMXcQAvD_BwE")
 
+        }
+        iBinding.ShopClues.setOnClickListener {
+            searchTheWeb("https://www.shopclues.com/")
 
+        }
+        iBinding.SnapDeal.setOnClickListener {
+           searchTheWeb("https://www.snapdeal.com/")
+        }
+        iBinding.Croma.setOnClickListener {
 
+            searchTheWeb("https://www.croma.com/croma-products/bp/b-0082?q=%3Arelevance%3Aprice_group%3A1%2C501+-+3%2C000%3Aprice_group%3A1%2C001+-+1%2C500%3Aprice_group%3A5%2C001+-+10%2C000%3Aprice_group%3A10%2C001+-+20%2C000%3Aprice_group%3A30%2C001+-+40%2C000%3Aprice_group%3A20%2C001+-+30%2C000%3Aprice_group%3A3%2C001+-+5%2C000%3Aprice_group%3A40%2C001+-+50%2C000%3Aprice_group%3A50%2C001+-+60%2C000%3Aprice_group%3A60%2C001+-+70%2C000%3Aprice_group%3A1%2C00%2C001+-+2%2C00%2C000%3Aprice_group%3A70%2C001+-+80%2C000&utm_source=google&utm_medium=ps&utm_campaign=Sok_PMax-Croma_Products_Focused_ROI&gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9w2VwPq4hL7qhsOybjRi5M610dk9SrMEDJaBJArNYtTrBl2aw6kP30xoC1ZEQAvD_BwE")
+
+        }
+        iBinding.Beardo.setOnClickListener {
+            searchTheWeb("https://beardo.in/?utm_source=google&utm_medium=search&utm_campaign=20345124381&utm_term=156692938048&utm_content=665095510262+beardo&gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9w1nPWsp2WAEBdyVsCNnTCzTgx2SzMpXReSrcQ20jBBSUQa_kfUdlTRoCxhUQAvD_BwE")
+
+        }
+        iBinding.swiggy.setOnClickListener {
+            searchTheWeb("https://www.swiggy.com/")
+
+        }
+        iBinding.Dominos.setOnClickListener {
+          searchTheWeb("https://www.dominos.co.in/")
+        }
+        iBinding.BlinkIt.setOnClickListener {
+           searchTheWeb("https://blinkit.com/")
+        }
+        iBinding.McDonald.setOnClickListener {
+           searchTheWeb("https://mcdindia.com/")
+
+       }
+        iBinding.Zomato.setOnClickListener {
+            searchTheWeb("https://www.zomato.com/india")
+
+        }
+        iBinding.TrueMeds.setOnClickListener {
+            searchTheWeb("https://www.truemeds.in/order-online?utm_source=google&utm_medium=Search&utm_campaign=Sok_Search_Brand&adgroupid=128411669733&utm_term=truemeds&utm_adid={adid}&gclid=CjwKCAjw17qvBhBrEiwA1rU9wyofDOgYPwYzgj59EZrqUAIRPZf6jqCREiXcew07nSfl0OP-ZJ6fshoCwvQQAvD_BwE")
+
+        }
+        iBinding.onemg.setOnClickListener {
+            searchTheWeb("https://www.1mg.com/offers?utm_source=google&utm_medium=cpc&utm_campaign={1MG_Search_Brand_Pharma_TROAS_New}&utm_adgroup={adgroup}&utm_keyword=onemg&wpsrc=Google%20AdWords&wpcid=20811169629&wpsnetn=g&wpkwn=onemg&wpkmatch=e&wpcrid=682848544276&wpscid=155544682705&wpkwid=kwd-573971952624&gad_source=1&gclid=CjwKCAjw17qvBhBrEiwA1rU9wzE6GQhhY4VZrg-_Z2yUHZOGVzm9BVXoihu5r3_krskzai5XjDz5uRoC-A0QAvD_BwE")
+
+        }
         iBinding.instagram.setOnClickListener {
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
 
-            }
-            else
-            {
                 searchTheWeb("https://www.instagram.com/")
-            }
+
 
 
         }
         iBinding.twitter.setOnClickListener {
-
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
                 searchTheWeb("https://twitter.com/home")
             }
-
-        }
-
         iBinding.amazon.setOnClickListener {
 
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
                 searchTheWeb("https://www.amazon.com/")
             }
-        }
         iBinding.flipkart.setOnClickListener {
 
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
+
                 searchTheWeb("https://www.flipkart.com/")
             }
-        }
         iBinding.jioCinema.setOnClickListener {
 
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
+
                 searchTheWeb("https://www.jiocinema.com/")
             }
-        }
         iBinding.gmail.setOnClickListener {
 
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
+
                 searchTheWeb("https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox")
-            }
+
         }
         iBinding.pintrest.setOnClickListener {
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
+
                 searchTheWeb("https://in.pinterest.com/")
-            }
+
         }
         iBinding.cricbuzz.setOnClickListener {
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
+
                 searchTheWeb("https://www.cricbuzz.com/")
 
-            }
+
         }
         iBinding.shopsy.setOnClickListener {
 
-            if (p%4==0)
-            {
-                intertialads.showInterstital(this)
-            }
-            else
-            {
-                searchTheWeb("https://www.shopsy.in/")
-            }
-        }
 
+                searchTheWeb("https://www.shopsy.in/")
+
+        }
+        //Item click listner
 
         databaseHelper = DatabaseHelper(this)
         configManager=ConfigManager(this)
@@ -751,11 +748,6 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
                     iBindingToolbarContent.tabsButton.isVisible = true
                     iBinding!!.newui.visibility = View.VISIBLE
                     iBinding!!.layoutHorizontal.visibility = View.GONE
-//                    val dpheight = 0 // Your desired width in dp
-//                    val layoutParams = iBinding.toolbarInclude.toolbarLayout.layoutParams
-//                    layoutParams.height = dpToPx(dpheight)
-//                    iBindingToolbarContent.contentt.layoutParams = layoutParams
-
                     false
                 }
 
@@ -4620,7 +4612,7 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
 
     private fun searchTheWeb(query: String) {
         searchView.setText(query)
-         p++
+
         iBinding.toolbarInclude.progressView.visibility= VISIBLE
         val currentTab = tabsManager.currentTab
         if (query.isEmpty()) {
@@ -4631,10 +4623,7 @@ abstract class WebBrowserActivity : ThemedBrowserActivity(),
             iBindingToolbarContent.addressBarInclude.search.setText("")
             iBinding.layoutHorizontal.visibility = GONE
             iBindingToolbarContent.tabsButton.isVisible=true
-//            val dpWidth = 0 // Your desired width in dp
-//            val layoutParams = iBindingToolbarContent.contentt.layoutParams
-//            layoutParams.width = dpToPx(dpWidth)
-//            iBindingToolbarContent.contentt.layoutParams = layoutParams
+
         }
         else {
             iBindingToolbarContent.tabsButton.isVisible = true
