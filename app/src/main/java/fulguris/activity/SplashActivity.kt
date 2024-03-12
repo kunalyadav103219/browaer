@@ -32,9 +32,13 @@ import android.os.Looper
 import android.os.PersistableBundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.HandlerCompat.postDelayed
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import dagger.hilt.android.AndroidEntryPoint
 import fulguris.App
 import fulguris.AppOpenAdsManager
@@ -126,6 +130,7 @@ class SplashActivity :AppCompatActivity()
 //                    // Close this activity
 //                    finish()
 //                }, 2000)
+
 
 
                 var i=0

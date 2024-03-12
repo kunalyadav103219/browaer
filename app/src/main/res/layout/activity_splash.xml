@@ -25,19 +25,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9C7740"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center"
 
     tools:context="fulguris.activity.SplashActivity">
 
 
 
     <ImageView
-
+        android:gravity="center"
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/gologo"
        />
+    <com.airbnb.lottie.LottieAnimationView
 
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        app:lottie_rawRes="@raw/ic_loading2"
+        app:lottie_loop="true"
+         app:lottie_autoPlay="true" />
 
-</LinearLayout>
+  </LinearLayout>

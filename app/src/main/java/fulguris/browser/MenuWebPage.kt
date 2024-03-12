@@ -142,7 +142,7 @@ class MenuWebPage : PopupWindow {
         iBinding.menuItemPrint.isVisible = true
         iBinding.menuItemReaderMode.isVisible = true
         // Show option to go back to main menu
-        iBinding.menuItemMainMenu.isVisible = true
+        iBinding.menuItemMainMenu.isVisible = false
 
         (contentView.context as WebBrowserActivity).tabsManager.let { tm ->
             tm.currentTab?.let { tab ->
